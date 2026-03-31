@@ -23,6 +23,32 @@
     }
   });
 
+  // Hamburger menu
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileClose = document.querySelector('.mobile-close');
+  const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+
+  mobileClose.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+
   // WhatsApp form redirect
   function sendToWhatsApp() {
     const firstName = document.querySelector('input[placeholder="Amina"]').value || 'Not provided';
